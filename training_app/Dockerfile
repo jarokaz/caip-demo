@@ -1,5 +1,5 @@
 
-FROM gcr.io/jk-sandbox12/ai_notebook_custom:latest
+FROM gcr.io/jk-demo1/sklearn-cpu:latest
 WORKDIR /app
 COPY train.py .
 
