@@ -1,5 +1,7 @@
 
 import os
+import numpy as np
+
 from sklearn.externals import joblib
 
 class OctaneRegressor(object):
@@ -12,8 +14,7 @@ class OctaneRegressor(object):
     def predict(self, instances, **kwargs):
         """Runs inference"""
     
-        inputs = np.asarray(instances)
-        outputs = self._model.predict(preprocessed_inputs)
+        outputs = self._model.predict(np.asarray(instances))
         
         return outputs.tolist()
 
