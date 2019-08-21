@@ -1,4 +1,4 @@
-# Deep Learning Containers
+# AI Platform Notebooks and Deep Learning Containers
 
 
 ## Creating an AI Platform Notebook based on a custom container
