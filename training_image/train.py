@@ -55,7 +55,7 @@ def train(job_dir, data_path, n_features_options, l2_reg_options):
   # Save the model
   model_filename = 'model.joblib'
   joblib.dump(value=trained_pipeline, filename=model_filename)
-  gcs_model_path = "{}/trained_model/{}".format(job_dir, model_filename)
+  gcs_model_path = "{}/{}".format(job_dir, model_filename)
   subprocess.check_call(['gsutil', 'cp', model_filename, gcs_model_path], stderr=sys.stdout)
   logging.info("Saved model in: {}".format(gcs_model_path)) 
     
