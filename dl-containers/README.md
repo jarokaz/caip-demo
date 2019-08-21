@@ -48,3 +48,10 @@ gcloud compute instances create $INSTANCE_NAME \
         --scopes=https://www.googleapis.com/auth/cloud-platform \
         --metadata="install-nvidia-driver=True,proxy-mode=project_editors,container=$IMAGE_URI"
 ```
+
+To get JupyterLab URL
+
+```
+gcloud compute instances describe "${INSTANCE_NAME}" \
+  --format='value[](metadata.items.proxy-url)'
+```
