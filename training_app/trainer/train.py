@@ -29,12 +29,14 @@ def train(job_dir, data_path, n_features_options, l2_reg_options):
   y = df_train.octane
   X = df_train.drop('octane', axis=1)
     
+  # Configure a training pipeline
   pipeline = Pipeline([
     ('scale', StandardScaler()),
     ('reduce_dim', PCA()),
     ('regress', Ridge())
   ])
 
+  # Configure a parameter grid
   param_grid = [
     {
       'reduce_dim__n_components': n_features_options,
@@ -42,8 +44,8 @@ def train(job_dir, data_path, n_features_options, l2_reg_options):
     }
   ]
 
+  # Tune hyperparameters
   grid = GridSearchCV(pipeline, cv=10, n_jobs=None, param_grid=param_grid, scoring='neg_mean_squared_error', iid=False)
-  
   grid.fit(X, y)
 
   logging.info("Best estimator: {}".format(grid.best_params_))
