@@ -1,0 +1,26 @@
+
+trainingInput:
+  hyperparameters:
+    goal: MAXIMIZE
+    maxTrials: 50
+    maxParallelTrials: 3
+    hyperparameterMetricTag: neg_mean_squared_error
+    enableTrialEarlyStopping: TRUE 
+    params:
+    - parameterName: n_components
+      type: DISCRETE
+      discreteValues: [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+          ]
+    - parameterName: alpha
+      type: DOUBLE
+      minValue:  0.0001
+      maxValue:  0.1
+      scaleType: UNIT_LINEAR_SCALE
+      
