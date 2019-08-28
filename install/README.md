@@ -13,6 +13,7 @@ export IMAGE="common-cpu"
 
 
 gcloud compute instances create ${INSTANCE_NAME} \
+      --zone=$ZONE \
       --machine-type=${INSTANCE_TYPE} \
       --scopes=https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/userinfo.email \
       --min-cpu-platform="Intel Skylake" \
@@ -33,6 +34,7 @@ export IMAGE="tf-latest-gpu"
 export ACCELERATOR="type=nvidia-tesla-p100,count=1"
 
 gcloud compute instances create ${INSTANCE_NAME} \
+      --zone=$ZONE \
       --machine-type=${INSTANCE_TYPE \
       --scopes=https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/userinfo.email \
       --min-cpu-platform="Intel Skylake" \
