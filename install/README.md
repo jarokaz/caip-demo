@@ -10,7 +10,7 @@ export INSTANCE_NAME="ai-notebook-cpu"
 export ZONE="us-west1-a"
 export INSTANCE_TYPE="n1-standard-8"
 export IMAGE="common-cpu"
-export INSTANCE_TYPE="n1-standard-8"
+
 
 gcloud compute instances create ${INSTANCE_NAME} \
       --machine-type=${INSTANCE_TYPE \
