@@ -2,6 +2,8 @@
 
 ## Creating an AI Platform Notebook using GCLOUD command
 
+Specific [VM images](https://cloud.google.com/deep-learning-vm/docs/images) are available to suit your choice of framework and processor. 
+
 ```
 export INSTANCE_NAME="ai-notebook-cpu"
 export ZONE="us-west1-a"
