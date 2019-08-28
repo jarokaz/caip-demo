@@ -13,7 +13,7 @@ export IMAGE="common-cpu"
 
 
 gcloud compute instances create ${INSTANCE_NAME} \
-      --machine-type=${INSTANCE_TYPE \
+      --machine-type=${INSTANCE_TYPE} \
       --scopes=https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/userinfo.email \
       --min-cpu-platform="Intel Skylake" \
       --image-family=${IMAGE} \
