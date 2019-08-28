@@ -1,8 +1,9 @@
 # AI Platform Notebooks and Deep Learning Containers
+The following instructions are for creating AI Platform Notebooks using `gcloud` command and Cloud Shell.
 
 ## Creating an AI Platform Notebook using GCLOUD command
 
-Specific [VM images](https://cloud.google.com/deep-learning-vm/docs/images) are available to suit your choice of framework and processor. 
+Specific [VM images](https://cloud.google.com/deep-learning-vm/docs/images) are available to suit your choice of framework and processor. For example, to create AI Platform Notebook based on the latest Base CPU image (that includes sklearn and pandas)
 
 ```
 export INSTANCE_NAME="ai-notebook-cpu"
@@ -10,6 +11,18 @@ export ZONE="us-west1-a"
 export INSTANCE_TYPE="n1-standard-8"
 export 
 
+gcloud compute instances create ${INSTANCE_NAME} \
+      --machine-type=n1-standard-8 \
+      --scopes=https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/userinfo.email \
+      --min-cpu-platform="Intel Skylake" \
+      ${IMAGE} \
+      --image-project=deeplearning-platform-release \
+      --boot-disk-size=100GB \
+      --boot-disk-type=pd-ssd \ 
+      --accelerator=type=nvidia-tesla-p100,count=1 \
+      --boot-disk-device-name=${INSTANCE_NAME} \
+      --maintenance-policy=TERMINATE --restart-on-failure \
+      --metadata="proxy-user-mail=${GCP_LOGIN_NAME},install-nvidia-driver=True"
 ```
 
 ## Creating an AI Platform Notebook based on a custom container
