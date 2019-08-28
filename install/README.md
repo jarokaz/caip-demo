@@ -20,7 +20,7 @@ gcloud compute instances create ${INSTANCE_NAME} \
       --image-project=deeplearning-platform-release \
       --boot-disk-size=100GB \
       --boot-disk-device-name=${INSTANCE_NAME} \
-      --maintenance-policy=TERMINATE --restart-on-failure \
+      --maintenance-policy=TERMINATE \
       --metadata="proxy-user-mail=${GCP_LOGIN_NAME}"
 ```
 
@@ -41,7 +41,7 @@ gcloud compute instances create ${INSTANCE_NAME} \
       --boot-disk-size=100GB \
       --accelerator=type=${ACCELERATOR} \
       --boot-disk-device-name=${INSTANCE_NAME} \
-      --maintenance-policy=TERMINATE --restart-on-failure \
+      --maintenance-policy=TERMINATE \
       --metadata="proxy-user-mail=${GCP_LOGIN_NAME},install-nvidia-driver=True"
 ```
 
