@@ -19,7 +19,6 @@ gcloud compute instances create ${INSTANCE_NAME} \
       --image-family=${IMAGE} \
       --image-project=deeplearning-platform-release \
       --boot-disk-size=100GB \
-      --boot-disk-type=pd-ssd \ 
       --boot-disk-device-name=${INSTANCE_NAME} \
       --maintenance-policy=TERMINATE --restart-on-failure \
       --metadata="proxy-user-mail=${GCP_LOGIN_NAME}"
@@ -40,7 +39,6 @@ gcloud compute instances create ${INSTANCE_NAME} \
       --image-family=${IMAGE} \
       --image-project=deeplearning-platform-release \
       --boot-disk-size=100GB \
-      --boot-disk-type=pd-ssd \ 
       --accelerator=type=${ACCELERATOR} \
       --boot-disk-device-name=${INSTANCE_NAME} \
       --maintenance-policy=TERMINATE --restart-on-failure \
