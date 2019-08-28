@@ -45,6 +45,20 @@ gcloud compute instances create ${INSTANCE_NAME} \
       --boot-disk-device-name=${INSTANCE_NAME} \
       --maintenance-policy=TERMINATE \
       --metadata="proxy-user-mail=${GCP_LOGIN_NAME},install-nvidia-driver=True"
+      
+      
+gcloud compute instances create ${INSTANCE_NAME} \
+      --zone=$ZONE \
+      --machine-type=${INSTANCE_TYPE} \
+      --scopes=https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/userinfo.email \
+      --min-cpu-platform="Intel Skylake" \
+      --image-family=${IMAGE} \
+      --image-project=deeplearning-platform-release \
+      --boot-disk-size=100GB \
+      --boot-disk-device-name=${INSTANCE_NAME} \
+      --maintenance-policy=TERMINATE \
+      --accelerator=type=${ACCELERATOR} \
+      --metadata="proxy-user-mail=${GCP_LOGIN_NAME},install-nvidia-driver=True"
 ```
 
 ## Creating an AI Platform Notebook based on a custom container.
