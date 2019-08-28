@@ -1,5 +1,14 @@
 # AI Platform Notebooks and Deep Learning Containers
 
+## Creating an AI Platform Notebook using GCLOUD command
+
+```
+export INSTANCE_NAME="ai-notebook-cpu"
+export ZONE="us-west1-a"
+export INSTANCE_TYPE="n1-standard-8"
+export 
+
+```
 
 ## Creating an AI Platform Notebook based on a custom container
 It is recommended to build a custom container as a derivative of one of the base Deep Learning containers.
@@ -48,6 +57,8 @@ gcloud compute instances create $INSTANCE_NAME \
         --scopes=https://www.googleapis.com/auth/cloud-platform \
         --metadata="install-nvidia-driver=True,proxy-mode=project_editors,container=$IMAGE_URI"
 ```
+
+## Getting URL to JupyterLab
 
 To get JupyterLab URL
 
