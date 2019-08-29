@@ -43,7 +43,7 @@ gcloud compute instances create ${INSTANCE_NAME} \
       --boot-disk-device-name=${INSTANCE_NAME} \
       --maintenance-policy=TERMINATE \
       --accelerator=type=${ACCELERATOR} \
-      --metadata="proxy-user-mail=${GCP_LOGIN_NAME},install-nvidia-driver=True"
+      --metadata="install-nvidia-driver=True"
 ```
 
 ## Creating an AI Platform Notebook based on a custom container.
