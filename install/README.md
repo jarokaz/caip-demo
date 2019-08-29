@@ -21,8 +21,7 @@ gcloud compute instances create ${INSTANCE_NAME} \
       --image-project=deeplearning-platform-release \
       --boot-disk-size=100GB \
       --boot-disk-device-name=${INSTANCE_NAME} \
-      --maintenance-policy=TERMINATE \
-      --metadata="proxy-mode=service_account"
+      --maintenance-policy=TERMINATE 
 ```
 
 To create AI Platform Notebook based on the latest Tensorflow GPU image
