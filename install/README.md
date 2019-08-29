@@ -43,7 +43,7 @@ gcloud compute instances create ${INSTANCE_NAME} \
       --boot-disk-size=100GB \
       --boot-disk-device-name=${INSTANCE_NAME} \
       --maintenance-policy=TERMINATE \
-      --accelerator=type=${ACCELERATOR} \
+      --accelerator=${ACCELERATOR} \
       --metadata="proxy-mode=service_account,install-nvidia-driver=True"
 ```
 
