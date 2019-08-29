@@ -7,7 +7,7 @@ Specific [VM images](https://cloud.google.com/deep-learning-vm/docs/images) are 
 
 ```
 export INSTANCE_NAME="ai-notebook-cpu"
-export ZONE="us-central1-a"
+export ZONE="us-west1-a"
 export INSTANCE_TYPE="n1-standard-8"
 export IMAGE="common-cpu"
 
@@ -27,10 +27,10 @@ gcloud compute instances create ${INSTANCE_NAME} \
 To create AI Platform Notebook based on the latest Tensorflow GPU image
 ```
 export INSTANCE_NAME="ai-notebook-gpu"
-export ZONE="us-central1-a"
+export ZONE="us-west1-a"
 export INSTANCE_TYPE="n1-standard-8"
 export IMAGE="tf-latest-gpu"
-export ACCELERATOR="type=nvidia-tesla-p4,count=1"      
+export ACCELERATOR="type=nvidia-tesla-k80,count=1"      
       
 gcloud compute instances create ${INSTANCE_NAME} \
       --zone=$ZONE \
