@@ -31,7 +31,7 @@ export INSTANCE_NAME="ai-notebook-gpu"
 export ZONE="us-west1-a"
 export INSTANCE_TYPE="n1-standard-8"
 export IMAGE="tf-latest-gpu"
-export ACCELERATOR="type=nvidia-tesla-k80,count=1"      
+export ACCELERATOR="type=nvidia-tesla-p100,count=1"      
       
 gcloud compute instances create ${INSTANCE_NAME} \
       --zone=$ZONE \
@@ -43,7 +43,7 @@ gcloud compute instances create ${INSTANCE_NAME} \
       --boot-disk-size=100GB \
       --boot-disk-device-name=${INSTANCE_NAME} \
       --maintenance-policy=TERMINATE \
-      --accelerator=${ACCELERATOR} \
+      --accelerator=$ACCELERATOR \
       --metadata="proxy-mode=service_account,install-nvidia-driver=True"
 ```
 
