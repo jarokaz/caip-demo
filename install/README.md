@@ -22,7 +22,7 @@ gcloud compute instances create ${INSTANCE_NAME} \
       --boot-disk-size=100GB \
       --boot-disk-device-name=${INSTANCE_NAME} \
       --maintenance-policy=TERMINATE \
-      --metadata="proxy-user-mail=${GCP_LOGIN_NAME}"
+      --metadata="proxy-mode=service_account"
 ```
 
 To create AI Platform Notebook based on the latest Tensorflow GPU image
