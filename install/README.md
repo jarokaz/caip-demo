@@ -30,7 +30,7 @@ export INSTANCE_NAME="ai-notebook-gpu"
 export ZONE="us-central1-a"
 export INSTANCE_TYPE="n1-standard-8"
 export IMAGE="tf-latest-gpu"
-export ACCELERATOR="type=nvidia-tesla-p100,count=1"      
+export ACCELERATOR="type=nvidia-tesla-p4,count=1"      
       
 gcloud compute instances create ${INSTANCE_NAME} \
       --zone=$ZONE \
@@ -81,7 +81,7 @@ export IMAGE_URI="gcr.io/jk-demo1/sklearn-cpu:latest"
 export IMAGE_FAMILY="common-container" 
 export ZONE="us-west1-a"
 export INSTANCE_TYPE="n1-standard-8"
-export ACCELERATOR="type=nvidia-tesla-t4,count=2"
+export ACCELERATOR="type=nvidia-tesla-k80,count=2"
 
 gcloud compute instances create $INSTANCE_NAME \
         --zone=$ZONE \
