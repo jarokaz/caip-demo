@@ -5,10 +5,10 @@ import subprocess
 import sys
 
 import fire
+import joblib
 import numpy as np
 import pandas as pd
 
-from sklearn.externals import joblib
 from sklearn.cross_decomposition import PLSRegression
 from sklearn.decomposition import PCA
 from sklearn.feature_selection import SelectKBest, chi2
