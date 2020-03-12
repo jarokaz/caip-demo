@@ -2,7 +2,7 @@
 trainingInput:
   hyperparameters:
     goal: MAXIMIZE
-    maxTrials: 50
+    maxTrials: 12
     maxParallelTrials: 3
     hyperparameterMetricTag: neg_mean_squared_error
     enableTrialEarlyStopping: TRUE 
