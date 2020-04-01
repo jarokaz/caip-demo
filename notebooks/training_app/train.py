@@ -14,6 +14,7 @@
 # limitations under the License.
 
 import fire
+import hypertune
 import os
 import subprocess
 import sys
@@ -50,6 +51,18 @@ def _create_toy_resnet(dropout_rate=0.5, learning_rate=0.001):
     
     return model
 
+class _HptuneCallback(tf.keras.callbacks.Callback):
+    
+    hpt = hypertune.HyperTune()
+
+    def on_epoch_end(self, epoch, logs=None):
+        _HptuneCallback.hpt.report_hyperparameter_tuning_metric(
+            hyperparameter_metric_tag='accuracy',
+            metric_value=logs['val_acc'],
+            global_step=epoch
+    )
+        
+        
 def train_evaluate(job_dir, dropout_rate, learning_rate, batch_size, num_epochs):
     
     toy_resnet = _create_toy_resnet(dropout_rate, learning_rate)
@@ -65,7 +78,9 @@ def train_evaluate(job_dir, dropout_rate, learning_rate, batch_size, num_epochs)
     toy_resnet.fit(x_train, y_train,
           batch_size=batch_size,
           epochs=num_epochs,
-          validation_split=0.2)
+          validation_split=0.2,
+          verbose=2,
+          callbacks=[_HptuneCallback()])
     
 if __name__ == "__main__":
   fire.Fire(train_evaluate)
